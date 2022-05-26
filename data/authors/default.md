@@ -14,4 +14,4 @@ I am Yavuz Selim Bektas who is a Software Engineer at Garanti BBVA Technology. M
 
 I graduated with a double major from Sabanci University which are B.S in Computer Science and Engineering and B.A in Management
 
-I am also a full time traveller, I travel regardless of the situation. 
+I am a full-time traveler as well, I travel regardless of the situation. 
