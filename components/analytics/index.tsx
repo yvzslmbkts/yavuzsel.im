@@ -16,14 +16,6 @@ declare global {
 const isProduction = process.env.NODE_ENV === 'production'
 
 const Analytics = () => {
-  console.log('isProduction' + isProduction)
-  console.log(
-    'analytics values ' +
-      process.env.GOOGLE_ANALYTICS_ID +
-      ' and ' +
-      siteMetadata.analytics.googleAnalyticsId
-  )
-
   return (
     <>
       {isProduction && siteMetadata.analytics.plausibleDataDomain && <Plausible />}
