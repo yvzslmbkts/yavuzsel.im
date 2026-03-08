@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import HomeAbout from '@/components/HomeAbout'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -20,10 +21,11 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-2xl md:leading-6">
+        <div className="space-y-6 pt-6 pb-8 md:space-y-8">
+          <HomeAbout />
+          <h2 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10">
             Latest Articles
-          </h1>
+          </h2>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
