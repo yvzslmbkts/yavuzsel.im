@@ -1,7 +1,10 @@
 {
-  "name": "tailwind-nextjs-starter-blog",
+  "name": "yavuzsel.im",
   "version": "1.5.1",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "next dev",
     "dev": "next dev",
