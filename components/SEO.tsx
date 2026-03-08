@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
-import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 
 interface CommonSEOProps {
@@ -77,35 +76,22 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 export const TagSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const router = useRouter()
   return (
-    <>
-      <CommonSEO
-        title={title}
-        description={description}
-        ogType="website"
-        ogImage={ogImageUrl}
-        twImage={twImageUrl}
-      />
-      <Head>
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
-        />
-      </Head>
-    </>
+    <CommonSEO
+      title={title}
+      description={description}
+      ogType="website"
+      ogImage={ogImageUrl}
+      twImage={twImageUrl}
+    />
   )
 }
 
 interface BlogSeoProps extends PostFrontMatter {
-  authorDetails?: AuthorFrontMatter[]
   url: string
 }
 
 export const BlogSEO = ({
-  authorDetails,
   title,
   summary,
   date,
@@ -130,19 +116,9 @@ export const BlogSEO = ({
     }
   })
 
-  let authorList
-  if (authorDetails) {
-    authorList = authorDetails.map((author) => {
-      return {
-        '@type': 'Person',
-        name: author.name,
-      }
-    })
-  } else {
-    authorList = {
-      '@type': 'Person',
-      name: siteMetadata.author,
-    }
+  const authorList = {
+    '@type': 'Person',
+    name: siteMetadata.author,
   }
 
   const structuredData = {
